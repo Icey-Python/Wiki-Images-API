@@ -4,16 +4,6 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get('/')
-def welcome():
-  return 'hello world'
-
-
-@app.get('/me')
-def call(me: str):
-  return f'hello {me}'
-
-
 @app.get('/api/v1/<string:query>')
 def get_image(query: str) -> dict:
   url = f"https://en.wikipedia.org/w/rest.php/v1/search/title?q={query}"
