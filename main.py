@@ -3,6 +3,9 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+@app.get('/')
+def index():
+    return {"message": "Welcome to WIKI-images API go to /api/v1/<string:query> to get images or /redoc to get docs"}
 
 @app.get('/api/v1/<string:query>')
 def get_image(query: str) -> dict:
